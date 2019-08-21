@@ -10,7 +10,7 @@ struct Place: Codable {
 
 //Não esqueca de importar o Foundation
 func getRequest(url: String,
-                completion: @escaping (Place?, Error?) -> Void){
+                completion: @escaping ([Place]?, Error?) -> Void){
     //URL válida
     guard let URL = URL(string: url) else {
         completion(nil, nil)
@@ -37,7 +37,7 @@ func getRequest(url: String,
         
         do {
             
-            let response = try JSONDecoder().decode(Place.self, from: data)
+            let response = try JSONDecoder().decode([Place].self, from: data)
             completion(response, nil)
             
         } catch let error as NSError {
@@ -54,7 +54,7 @@ func getRequest(url: String,
 
 
 //Coloque a URL da sua API aqui
-let url = "https://jsonplaceholder.typicode.com/todos/1"
+let url = "https://jsonplaceholder.typicode.com/todos/"
 //let url = "https://uselessfacts.jsph.pl/random.json?language=en"
 
 
@@ -65,5 +65,5 @@ getRequest(url: url){
         print("Arequisição não funcionou")
         return
     }
-    print(resultado.userId)
+    print(resultado[0].id)
 }
