@@ -10,8 +10,6 @@ router.get('/', function (req, res, next) {
   })
 })
 
-
-
 /* POST create user. */
 router.post('/', async function (req, res, next) {
   try {

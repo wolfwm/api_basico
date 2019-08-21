@@ -17,8 +17,8 @@ const options = {
 };
 
 
-urlDataBase = "mongodb://tests:tests123@ds149806.mlab.com:49806/tests" // Set your Data Base URL here
-//Production
+urlDataBase = "mongodb://tests:tests123@ds149806.mlab.com:49806/tests" // Coloque sua url de conexao com o banco de dados aqui.
+
 mongoose.connect(urlDataBase, options)
 
 
